@@ -1,0 +1,63 @@
+.wrap { padding: 4rem 0 6rem; position: relative; z-index: 1; }
+.timeline { position: relative; padding-left: 1.5rem; margin-bottom: 3rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: .3rem; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.item {
+  position: relative; margin-bottom: 3rem;
+  opacity: 0; transform: translateX(-20px);
+  transition: opacity .5s, transform .5s;
+}
+.item.visible { opacity: 1; transform: translateX(0); }
+.dot {
+  position: absolute; left: -1.5rem; top: .35rem;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+  transform: translateX(-4px);
+}
+.period {
+  font-family: var(--mono); font-size: .68rem;
+  color: var(--accent); letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: .35rem;
+}
+.role { font-size: 1.2rem; font-weight: 700; margin-bottom: .2rem; }
+.company { font-family: var(--mono); font-size: .8rem; color: var(--muted); margin-bottom: 1rem; }
+.points { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+.points li {
+  font-size: .9rem; line-height: 1.65; color: #94afc8;
+  padding-left: 1.1rem; position: relative;
+}
+.points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
+.tag {
+  font-family: var(--mono); font-size: .62rem; color: var(--accent2);
+  background: rgba(79,140,255,.08); border: 1px solid rgba(79,140,255,.2);
+  padding: .2rem .5rem; border-radius: 2px; letter-spacing: .06em;
+}
+.eduBox {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 2rem 2.5rem;
+  display: flex; align-items: center; gap: 2rem;
+  max-width: 680px; position: relative; overflow: hidden;
+}
+.eduBox::before {
+  content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+}
+.eduIcon { font-size: 2rem; }
+.eduDegree { font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem; }
+.eduSchool { font-family: var(--mono); font-size: .8rem; color: var(--accent); margin-bottom: .2rem; }
+.eduPeriod { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+.gpaBox {
+  margin-left: auto; text-align: center;
+  background: rgba(0,229,192,.08); border: 1px solid rgba(0,229,192,.2);
+  border-radius: 6px; padding: 1rem 1.5rem;
+}
+.gpaNum { font-family: var(--mono); font-size: 1.6rem; color: var(--accent); font-weight: 700; display: block; }
+.gpaLbl { font-family: var(--mono); font-size: .6rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+
+@media (max-width: 600px) {
+  .eduBox { flex-direction: column; text-align: center; }
+  .gpaBox { margin-left: 0; }
+}
